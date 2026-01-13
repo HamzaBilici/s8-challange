@@ -1,17 +1,31 @@
 import { useState } from "react";
 import "./App.css";
-import MainBanner from "./components/MainBanner.jsx";
-import Content from "./components/Content.jsx";
+import { Routes, Route } from "react-router";
+import Home from "./Home.jsx";
+import Order from "./Order.jsx";
 import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <>
-      <MainBanner />
-      <Content />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="order">
+          <Route index element={<Order />} />
+          <Route path="success" element={<OrderSuccess />} />
+        </Route>
+      </Routes>
       <Footer />
     </>
   );
 }
 
 export default App;
+
+function OrderSuccess() {
+  return (
+    <>
+      <h1>Order Successful!</h1>
+    </>
+  );
+}

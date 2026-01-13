@@ -1,0 +1,25 @@
+.order-header {
+  width: 100%;
+  margin: 0;
+  height: 138px;
+  font-family: "Londrina Solid";
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 0;
+  color: var(--beyaz);
+ background: #CE2829;
+ align-content: center;
+
+}
+
+.header-section{
+    display: flex;
+    justify-content: center;
+}
+
+.header-section img{
+    max-width: 581px;
+    height: auto;
+}

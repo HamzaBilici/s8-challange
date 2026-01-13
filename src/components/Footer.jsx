@@ -9,27 +9,27 @@ function Footer() {
   ];
 
   const instaImages = [
-    "images/iteration-2-images/footer/insta/li-0.png",
-    "images/iteration-2-images/footer/insta/li-1.png",
-    "images/iteration-2-images/footer/insta/li-2.png",
-    "images/iteration-2-images/footer/insta/li-3.png",
-    "images/iteration-2-images/footer/insta/li-4.png",
-    "images/iteration-2-images/footer/insta/li-5.png",
+    "/images/iteration-2-images/footer/insta/li-0.png",
+    "/images/iteration-2-images/footer/insta/li-1.png",
+    "/images/iteration-2-images/footer/insta/li-2.png",
+    "/images/iteration-2-images/footer/insta/li-3.png",
+    "/images/iteration-2-images/footer/insta/li-4.png",
+    "/images/iteration-2-images/footer/insta/li-5.png",
   ];
 
   const contactInfo = [
     {
-      icon: "images/iteration-2-images/footer/icons/icon-1.png",
+      icon: "/images/iteration-2-images/footer/icons/icon-1.png",
       text1: "341 Londonderry Road,",
       text2: "Istanbul Türkiye",
     },
     {
-      icon: "images/iteration-2-images/footer/icons/icon-2.png",
+      icon: "/images/iteration-2-images/footer/icons/icon-2.png",
       text1: "aciktim@teknolojikyemekler.com",
       text2: "",
     },
     {
-      icon: "images/iteration-2-images/footer/icons/icon-3.png",
+      icon: "/images/iteration-2-images/footer/icons/icon-3.png",
       text1: "+90 216 123 45 67",
       text2: "",
     },
