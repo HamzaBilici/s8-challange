@@ -5,16 +5,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
-
 function Order() {
-  const orderData = {
-    title: "Position Absolute Acı Pizza",
-    price: 85.5,
-    rating: "4.9",
-    reviews: "200",
-    description:
-      "Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.",
-  };
+
+
   const formInputInitialData = {
     doughSize: "",
     doughType: "",
@@ -22,9 +15,40 @@ function Order() {
     orderNote: "",
     pieceCount: 1,
   };
+  const [orderData, setOrderData] = useState({});
   const [totalPrice, setTotalPrice] = useState(orderData.price);
   const [formInputData, setFormInputData] = useState(formInputInitialData);
   const [isValid, setIsValid] = useState(false);
+
+
+  
+  useEffect(() => {
+
+      const orderDataInit = {
+    title: "Position Absolute Acı Pizza",
+    price: 85.5,
+    rating: "4.9",
+    reviews: "200",
+    description:
+      "Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.",
+  };
+
+      axios
+      .post(
+        "https://reqres.in/api/pizza",
+        orderDataInit,
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      ).then(function (response) {
+        console.log(response.data);
+        setOrderData(response.data);
+      }).catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   let navigate = useNavigate();
   useEffect(() => {
