@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router";
 import Home from "./Home.jsx";
 import Order from "./Order.jsx";
 import Footer from "./components/Footer.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

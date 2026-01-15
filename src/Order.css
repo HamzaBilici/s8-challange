@@ -9,17 +9,376 @@
   text-align: center;
   letter-spacing: 0;
   color: var(--beyaz);
- background: #CE2829;
- align-content: center;
+  background: #ce2829;
+  align-content: center;
+}
+
+.header-section {
+  display: flex;
+  justify-content: center;
+  background: #faf7f2;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-section img {
+  max-width: 581px;
+  height: auto;
+}
+
+.product-info {
+  max-width: 532px;
+  margin-top: 40px;
+}
+
+.breadcrums {
+  display: flex;
+  flex-direction: row;
+}
+
+.breadcrums span {
+  font-family: "Barlow";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #5f5f5f;
+}
+.breadcrums span.active {
+  color: #ce2829;
+}
+.product-info h2 {
+  font-family: "Barlow";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 29.44px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #292929;
+}
+.product-info .price-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-info .price-rating .price {
+  font-family: "Barlow";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 28px;
+  line-height: 37.47px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #292929;
+}
+.product-info .price-rating .rating-area {
+  width: 117.62895202636719px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #5f5f5f;
+}
+
+.product-info .price-rating .rating-area span {
+  font-family: "Barlow";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.product-info .product-description {
+  font-family: "Barlow";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0;
+  color: #5f5f5f;
+  margin-top: 40px;
+}
+
+.order-form-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  margin-top: 40px;
+}
+
+.order-form-section .order-form {
+  max-width: 529px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap:40px ;
+}
+.order-form-section .order-form .sizes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.order-form-section label {
+  width: 100%;
+
+  font-family: "Barlow";
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24.76px;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+
+.order-form .sizes .size-group {
+  margin-bottom: 0px !important;
+  max-width: 215px;
+}
+
+.order-form .sizes .size-group div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 17px;
+}
+
+.size-group input[type="radio"] {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background: #faf7f2;
+  border-color: transparent;
+}
+.size-group input[type="radio"]:checked {
+  background: #ffeecc;
+  border-color: transparent;
+}
+.size-group input[type="radio"]:focus {
+  box-shadow: none;
+}
+
+.size-group input[type="radio"]::after {
+  content: "S";
+  font-family: "Barlow";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 56px;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+  color: #5f5f5f;
+  display: flex;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+}
+.size-group input[type="radio"]:nth-of-type(1)::after {
+  content: "S";
+}
+.size-group input[type="radio"]:nth-of-type(2)::after {
+  content: "M";
+}
+.size-group input[type="radio"]:nth-of-type(3)::after {
+  content: "L";
+}
+.dough-type {
+  max-width: 258px;
+  width: 258px;
+  margin-bottom: 0px;
+}
+
+.dough-type select {
+  background: #faf7f2;
+
+  max-width: 258px;
+  height: 56px;
+  border-radius: 6px;
+}
+
+.ingredient-area p {
+  font-family: "Barlow";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 56px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #5f5f5f;
+  margin: 0px;
+}
+
+.ingredient-checkbox {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  row-gap: 13px;
+}
+
+.ingredient-checkbox > div {
+  width: 167px;
+  gap: 11px;
+  display: flex;
+  align-items: center;
+}
+
+.ingredient-checkbox label {
+  font-family: "Barlow";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #5f5f5f;
+}
+
+.ingredient-checkbox input[type="checkbox"] {
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  background: #faf7f2;
+}
+.ingredient-checkbox input[type="checkbox"]:checked {
+  background: #fdc913;
+  border-color: transparent;
+}
+.ingredient-checkbox input[type="checkbox"]:focus {
+    border-color:none;
+    outline: 0;
+    box-shadow: none;
+}
+.ingredient-checkbox input[type="checkbox"]:checked::after {
+  content: "✓";
+  font-family: "Barlow";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0;
+  vertical-align: middle;
+
+  display: flex;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-note input[type="text"] {
+  background: #faf7f2;
+
+  width: 100%;
+  height: 56px;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+form hr {
+  border: 1px solid #5f5f5f80;
+}
+.total-area{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;gap: 11px;
+}
+
+.piece-count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 170px;
+  height: 57px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.piece-count button {
+  width: 57px;
+  height: 56px;
+  border: none;
+  border-radius: 0px;
+  background: #fdc913;
+  padding: 0;
+}
+.piece-count input {
+  width: 57px;
+  height: 56px;
+
+  border: 1px solid #d9d9d9;
+  border-radius: 0px;
+
+  font-family: "Barlow";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.total-price {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #D9D9D9;
+  border-radius: 6px;
+  background: #FAF7F2;
+  flex-grow: 1;
+padding: 42px 49px;
+}
+.price-container{
+  
+  flex-grow: 1;
+}
+
+.price-container button{
+  width: 100%;
+  background: #FDC913;
+  color: #292929;
+
+font-family: "Barlow";
+font-weight: 600;
+font-size: 18px;
+line-height: 56px;
+letter-spacing: 0;
+text-align: center;
+vertical-align: middle;
+border-color: transparent;
+}
+
+.option-prices{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 12px 0px;
+
+  font-family: "Barlow";
+font-weight: 600;
+font-size: 18px;
+line-height: 24.76px;
+letter-spacing: 0;
+vertical-align: middle;
+color: #5F5F5F;
+
 
 }
 
-.header-section{
+.sum-price{
     display: flex;
-    justify-content: center;
-}
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 12px 0px;
 
-.header-section img{
-    max-width: 581px;
-    height: auto;
+  font-family: "Barlow";
+font-weight: 600;
+font-size: 18px;
+line-height: 24.76px;
+letter-spacing: 0;
+vertical-align: middle;
+color: #CE2829;
 }
