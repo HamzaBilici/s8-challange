@@ -1,6 +1,10 @@
+import axios from "axios";
 import "./Order.css";
 import OrderForm from "./components/OrderForm";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
+import Toastify from "toastify-js";
+import "toastify-js/src/toastify.css";
 
 function Order() {
   const orderData = {
@@ -20,13 +24,25 @@ function Order() {
   };
   const [totalPrice, setTotalPrice] = useState(orderData.price);
   const [formInputData, setFormInputData] = useState(formInputInitialData);
+  const [isValid, setIsValid] = useState(false);
 
+  let navigate = useNavigate();
   useEffect(() => {
     setTotalPrice(
       (orderData.price + formInputData.ingredients.length * 5) *
         formInputData.pieceCount
     );
-  }, [formInputData.ingredients]);
+  }, [formInputData.ingredients, formInputData.pieceCount]);
+
+  useEffect(() => {
+    const isFormValid =
+      formInputData.doughSize !== "" &&
+      formInputData.doughType !== "" &&
+      formInputData.pieceCount > 0 &&
+      formInputData.ingredients.length <= 10;
+
+    setIsValid(isFormValid);
+  }, [formInputData]);
 
   function handlechange(event) {
     //event.preventDefault();
@@ -74,6 +90,61 @@ function Order() {
             
     });*/
     console.log(formInputData);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(event);
+    axios
+      .post(
+        "https://reqres.in/api/pizza",
+        { ...formInputData, totalPrice },
+        {
+          headers: {
+            "x-api-key": "reqres-free-v1",
+          },
+        }
+      )
+      .then(function (response) {
+        console.log(response.data);
+
+        Toastify({
+          style: {
+            color: "white",
+            height: "60px",
+            fontSize: "20px",
+          },
+          duration: 1500,
+          text: "Siparişiniz Alındı! Bir Sonraki sayfaya Yönlendiriliyorsunuz...",
+          gravity: "bottom",
+          backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+          callback: function () {
+            navigate("/order/success", {
+              state: { ...response.data, title: orderData.title },
+            });
+          },
+        }).showToast();
+      })
+      .catch(function (error) {
+        console.log(error);
+
+        Toastify({
+          style: {
+            color: "white",
+            height: "60px",
+            fontSize: "20px",
+          },
+          duration: 1500,
+          text: "Hata Oluştu! Lütfen Tekrar Deneyiniz...",
+          gravity: "bottom",
+          backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        }).showToast();
+      })
+      .finally(function () {
+        // always executed
+      });
+
+    //submit işlemleri
   }
 
   const ingredientData = [
@@ -134,9 +205,11 @@ function Order() {
       </section>
       <section className="order-form-section">
         <OrderForm
+          isValid={isValid}
           formInputData={formInputData}
           formAreaData={formAreaData}
           handlechange={handlechange}
+          handleSubmit={handleSubmit}
           totalPrice={totalPrice}
         />
       </section>

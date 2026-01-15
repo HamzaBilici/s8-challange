@@ -145,6 +145,8 @@ body {
 .content-section {
   display: flex;
   flex-direction: column;
+   background: #FAF7F2;
+;
 }
 .content-section .promotion-area {
   display: flex;
@@ -617,6 +619,7 @@ footer .footer-bottom span {
 }
   .main-banner .image-area {
     height: 100vh;
+;
   }
   .main-banner .image-area .main-banner-image {
     height: 100vh;

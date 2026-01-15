@@ -1,15 +1,24 @@
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { useNavigate } from "react-router";
 
-function OrderForm({ formAreaData, handlechange, formInputData, totalPrice }) {
+function OrderForm({
+  isValid,
+  formAreaData,
+  handlechange,
+  handleSubmit,
+  formInputData,
+  totalPrice,
+}) {
   const { doughTypes, ingredientData, pizzaSizes } = formAreaData;
   const { doughSize, doughType, ingredients, orderNote, pieceCount } =
     formInputData;
+
   return (
     <>
-      <Form className="order-form">
+      <Form className="order-form" onSubmit={handleSubmit}>
         <div className="sizes">
           <FormGroup className="size-group">
-            <Label>Boyut Seç</Label>
+            <Label>Boyut Seç <span>*</span></Label>
             <div>
               {pizzaSizes.map((size, index) => (
                 <Input
@@ -25,7 +34,7 @@ function OrderForm({ formAreaData, handlechange, formInputData, totalPrice }) {
           </FormGroup>
 
           <FormGroup className="dough-type">
-            <Label>Hamur Seç</Label>
+            <Label>Hamur Seç <span>*</span></Label>
             <Input
               onChange={handlechange}
               name="doughType"
@@ -112,14 +121,14 @@ function OrderForm({ formAreaData, handlechange, formInputData, totalPrice }) {
               <Label>Sipariş Toplamı</Label>
               <div className="option-prices">
                 <span>Seçimler</span>
-                <span>Seçimler</span>
+                <span>{ingredients.length * 5 * pieceCount}₺</span>
               </div>
               <div className="sum-price">
                 <span>Toplam</span>
                 <span>{totalPrice}₺</span>
               </div>
             </div>
-            <Button className="order-btn">SİPARİŞ VER</Button>
+            <Button disabled={!isValid} className="order-btn">SİPARİŞ VER</Button>
           </FormGroup>
         </div>
       </Form>

@@ -382,3 +382,140 @@ letter-spacing: 0;
 vertical-align: middle;
 color: #CE2829;
 }
+label >span{
+  color: #CE2829;
+  font-family: "Barlow";
+font-weight: 600;
+font-size: 20px;
+line-height: 24.76px;
+letter-spacing: 0;
+vertical-align: middle;
+
+}
+
+
+
+/*success*/
+
+.order-success-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  height: 100vh;
+  text-align: center;
+  gap: 20px;
+  background: #ce2829;
+  color: #FFFFFF;
+  font-family: "Barlow";
+
+}
+.order-success-message{
+align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap:20px
+
+}
+
+.order-success-section p{
+font-family: "Satisfy";
+font-weight: 400;
+font-size: 32px;
+line-height: 44.27px;
+letter-spacing: 0;
+text-align: center;
+vertical-align: middle;
+color: #FDC913;
+
+
+}
+.order-success-section h1{
+font-family: "Roboto Condensed";
+font-weight: 300;
+font-size: 86px;
+line-height: 92px;
+letter-spacing: 1.5px;
+text-align: center;
+vertical-align: middle;
+text-transform: uppercase;
+
+}
+.order-success-section hr{
+  border: 1px solid #FAF7F2;
+  width: 100%;
+}
+
+.order-name{
+font-weight: 600;
+font-size: 22px;
+line-height: 29.44px;
+letter-spacing: 0;
+text-align: center;
+vertical-align: middle;
+
+}
+
+.order-detail{
+  width: 202px;
+      justify-self: center;
+    text-align: start;
+}
+.order-detail >div{
+font-weight: 400;
+font-size: 16px;
+line-height: 24.76px;
+letter-spacing: 0;
+vertical-align: middle;
+
+}
+
+.order-detail span{
+  font-family: "Barlow";
+font-weight: 700;
+font-size: 16px;
+line-height: 24.76px;
+letter-spacing: 0;
+
+}
+
+
+.order-success-section .total-price{
+  background: unset;
+  width: 350px;
+height: 197px;
+color: #FFFFFF;
+
+}
+
+.order-success-section .total-price span{
+
+color: #FFFFFF;
+font-family: "Barlow";
+font-size: 18px;
+line-height: 24.76px;
+letter-spacing: 0;
+
+
+}
+
+.order-success-section .total-price h4{
+
+font-family: "Barlow";
+font-weight: 600;
+font-size: 20px;
+line-height: 24.76px;
+letter-spacing: 0;
+vertical-align: middle;
+text-align: left;
+
+
+
+}
+.footer-top{
+  margin-top: 0px !important
+}
+
+footer{
+  margin-top: 0px !important
+}

@@ -3,6 +3,7 @@ import "./App.css";
 import { Routes, Route } from "react-router";
 import Home from "./Home.jsx";
 import Order from "./Order.jsx";
+import OrderSuccess from "./OrderSuccess.jsx";
 import Footer from "./components/Footer.jsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -22,11 +23,3 @@ function App() {
 }
 
 export default App;
-
-function OrderSuccess() {
-  return (
-    <>
-      <h1>Order Successful!</h1>
-    </>
-  );
-}

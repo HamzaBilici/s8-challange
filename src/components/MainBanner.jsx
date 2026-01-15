@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 function MainBanner() {
   const options = [
     { imgSrc: "images\\iteration-2-images\\icons\\1.svg", label: "YENİ! Kore" },
@@ -40,7 +42,7 @@ function MainBanner() {
               </p>
             </div>
 
-            <a href="/">ACIKTIM</a>
+            <Link to="/order">ACIKTIM</Link>
           </div>
         </div>
         <div className="main-banner-options">
