@@ -6,8 +6,6 @@ import { useNavigate } from "react-router";
 import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 function Order() {
-
-
   const formInputInitialData = {
     doughSize: "",
     doughType: "",
@@ -15,16 +13,7 @@ function Order() {
     orderNote: "",
     pieceCount: 1,
   };
-  const [orderData, setOrderData] = useState({});
-  const [totalPrice, setTotalPrice] = useState(orderData.price);
-  const [formInputData, setFormInputData] = useState(formInputInitialData);
-  const [isValid, setIsValid] = useState(false);
-
-
-  
-  useEffect(() => {
-
-      const orderDataInit = {
+  const orderDataInit = {
     title: "Position Absolute Acı Pizza",
     price: 85.5,
     rating: "4.9",
@@ -32,30 +21,40 @@ function Order() {
     description:
       "Frontent Dev olarak hala position:absolute kullanıyorsan bu çok acı pizza tam sana göre. Pizza, domates, peynir ve genellikle çeşitli diğer malzemelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fırında yüksek sıcaklıkta pişirilen, genellikle yuvarlak, düzleştirilmiş mayalı buğday bazlı hamurdan oluşan İtalyan kökenli lezzetli bir yemektir. . Küçük bir pizzaya bazen pizzetta denir.",
   };
+  const [orderData, setOrderData] = useState(orderDataInit);
+  const [totalPrice, setTotalPrice] = useState(orderData.price);
+  const [formInputData, setFormInputData] = useState(formInputInitialData);
+  const [isValid, setIsValid] = useState(false);
 
-      axios
-      .post(
-        "https://reqres.in/api/pizza",
-        orderDataInit,
-        {
-          headers: {
-            "x-api-key": "reqres-free-v1",
-          },
-        }
-      ).then(function (response) {
-        console.log(response.data);
-        setOrderData(response.data);
-      }).catch(function (error) {
-        console.log(error);
-      });
-  }, []);
-
-  let navigate = useNavigate();
-  useEffect(() => {
+  function calcPrice() {
     setTotalPrice(
       (orderData.price + formInputData.ingredients.length * 5) *
-        formInputData.pieceCount
+        formInputData.pieceCount,
     );
+  }
+  /*
+  useEffect(() => {
+    axios
+      .post("https://reqres.in/api/pizza", orderDataInit, {
+        headers: {
+          "x-api-key": "reqres-free-v1",
+        },
+      })
+      .then(function (response) {
+        console.log(response.data);
+        setOrderData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+        setOrderData({...orderData,orderDataInit});
+      });
+
+    calcPrice();
+  }, []);
+*/
+  let navigate = useNavigate();
+  useEffect(() => {
+    calcPrice();
   }, [formInputData.ingredients, formInputData.pieceCount]);
 
   useEffect(() => {
@@ -70,14 +69,12 @@ function Order() {
 
   function handlechange(event) {
     //event.preventDefault();
-    console.log(event.target.type);
     if (event.target.type === "button") {
       setFormInputData({
         ...formInputData,
         pieceCount: formInputData.pieceCount + Number(event.target.value),
       });
     } else if (event.target.type === "checkbox") {
-      console.log(event.target.checked);
       if (event.target.checked) {
         setFormInputData({
           ...formInputData,
@@ -87,7 +84,7 @@ function Order() {
         setFormInputData({
           ...formInputData,
           ingredients: formInputData.ingredients.filter(
-            (item) => item !== event.target.value
+            (item) => item !== event.target.value,
           ),
         });
       }
@@ -116,6 +113,24 @@ function Order() {
     console.log(formInputData);
   }
 
+  function nextPageToast(data) {
+    Toastify({
+      style: {
+        color: "white",
+        height: "60px",
+        fontSize: "20px",
+      },
+      duration: 1000,
+      text: "Bir Sonraki sayfaya Yönlendiriliyorsunuz...",
+      gravity: "bottom",
+      backgroundColor: "linear-gradient(to right, #b4b6ba, #687fad)",
+      callback: function () {
+        navigate("/order/success", {
+          state: { ...data, title: orderData.title },
+        });
+      },
+    }).showToast();
+  }
   function handleSubmit(event) {
     event.preventDefault();
     console.log(event);
@@ -127,7 +142,7 @@ function Order() {
           headers: {
             "x-api-key": "reqres-free-v1",
           },
-        }
+        },
       )
       .then(function (response) {
         console.log(response.data);
@@ -138,14 +153,12 @@ function Order() {
             height: "60px",
             fontSize: "20px",
           },
-          duration: 1500,
+          duration: 1000,
           text: "Siparişiniz Alındı! Bir Sonraki sayfaya Yönlendiriliyorsunuz...",
           gravity: "bottom",
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
           callback: function () {
-            navigate("/order/success", {
-              state: { ...response.data, title: orderData.title },
-            });
+            nextPageToast(response.data);
           },
         }).showToast();
       })
@@ -158,10 +171,13 @@ function Order() {
             height: "60px",
             fontSize: "20px",
           },
-          duration: 1500,
+          duration: 1000,
           text: "Hata Oluştu! Lütfen Tekrar Deneyiniz...",
           gravity: "bottom",
           backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+          callback: function () {
+            nextPageToast(formInputData,totalPrice);
+          },
         }).showToast();
       })
       .finally(function () {
@@ -199,35 +215,52 @@ function Order() {
 
   return (
     <>
-      <h2 className="order-header">Teknolojik Yemekler</h2>
+      <h2 className="w-full m-0 h-[138px] font-[Londrina_Solid] font-[400] !text-[50px] leading-[50px] text-center tracking-[0px] !text-[var(--beyaz)] bg-[var(--kirmizi)] content-center">
+        Teknolojik Yemekler
+      </h2>
 
-      <section className="header-section">
+      <section className="header-section flex justify-center bg-[var(--bej)] flex-col items-center">
         <img
+          className="max-w-[581px] h-auto"
           src="/images/iteration-2-images/pictures/form-banner.png"
           alt="order-img"
         />
-        <div className="product-info">
-          <div className="breadcrums">
-            <span>Anasayfa - </span>
-            <span className="active"> Sipariş Oluştur</span>
+        <div className="max-w-[532px] mt-[40px]">
+          <div className="breadcrums flex flex-row">
+            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-[var(--acik-gri)]">
+              Anasayfa -{" "}
+            </span>
+            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-[var(--acik-gri)] text-[var(--kirmizi)]">
+              {" "}
+              Sipariş Oluştur
+            </span>
           </div>
           <div>
-            <h2>{orderData.title}</h2>
-            <div className="price-rating">
+            <h2 className="font-[Barlow] font-[600] font-[22px] leading-[29.44px] tracking-[0px] align-middle text-[var(--koyu-gri)]">
+              {orderData.title}
+            </h2>
+            <div className="flex flex-row justify-between items-center">
               {" "}
-              <span className="price">{orderData.price}₺</span>{" "}
-              <span className="rating-area">
-                <span> {orderData.rating}</span>
-                <span>({orderData.reviews})</span>
+              <span className="font-[Barlow] font-[700] leading-[37.47px] tracking-[0px] align-middle text-[var(--koyu-gri)] text-[28px]">
+                {orderData.price}₺
+              </span>{" "}
+              <span className="rating-area w-[117.62px] flex flex-row items-center justify-between text-[var(--acik-gri)]">
+                <span className="font-[Barlow] font-[400] text-[16px] leading-[28.8px] text-center align-middle">
+                  {" "}
+                  {orderData.rating}
+                </span>
+                <span className="font-[Barlow] font-[400] text-[16px] leading-[28.8px] text-center align-middle">
+                  ({orderData.reviews})
+                </span>
               </span>
             </div>
           </div>
-          <div className="product-description">
+          <div className="font-[Barlow] font-[400] text-[16px] leading-[ 28.8px] tracking-[0px] text-[#5f5f5f] mt-10">
             <p>{orderData.description}</p>
           </div>
         </div>
       </section>
-      <section className="order-form-section">
+      <section className="flex flex-column w-100 items-center mt-10 order-form-section">
         <OrderForm
           isValid={isValid}
           formInputData={formInputData}
