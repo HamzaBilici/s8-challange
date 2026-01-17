@@ -145,7 +145,7 @@ function OrderForm({
               name="pieceCount"
               value={-1}
               onClick={handlechange}
-              className="w-[57px] h-[56px] border-none rounded-[0] bg-[var(--sari)] p-0 decrease-btn text-[var(--beyaz)]"
+              className="w-[57px] h-[56px] border-none rounded-[0] bg-[var(--sari)] p-0 decrease-btn text-[var(--beyaz)] disabled:cursor-not-allowed disabled:opacity-30"
             >
               -
             </button>
@@ -179,7 +179,7 @@ function OrderForm({
             </div>
             <button
               disabled={!isValid}
-              className="w-100 bg-[var(--sari)] text-[var(--koyu-gri)] !font-[Barlow] font-[600] !text-[18px] !leading-[56px] tracking-[0px] text-center align-middle border-transparent !rounded-[6px]"
+              className="w-100 bg-[var(--sari)] text-[var(--koyu-gri)] !font-[Barlow] font-[600] !text-[18px] !leading-[56px] tracking-[0px] text-center align-middle border-transparent !rounded-[6px] disabled:cursor-not-allowed disabled:opacity-30"
             >
               SİPARİŞ VER
             </button>

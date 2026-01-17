@@ -125,6 +125,7 @@ function Order() {
       gravity: "bottom",
       backgroundColor: "linear-gradient(to right, #b4b6ba, #687fad)",
       callback: function () {
+        debugger
         navigate("/order/success", {
           state: { ...data, title: orderData.title },
         });
@@ -176,7 +177,7 @@ function Order() {
           gravity: "bottom",
           backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
           callback: function () {
-            nextPageToast(formInputData,totalPrice);
+            nextPageToast({...formInputData,totalPrice});
           },
         }).showToast();
       })
