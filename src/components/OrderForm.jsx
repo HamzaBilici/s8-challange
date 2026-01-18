@@ -26,6 +26,7 @@ function OrderForm({
               {pizzaSizes.map((size, index) => {
                 return (
                   <label
+                  data-cy="sizeSelection"
                     key={index}
                     className="relative cursor-pointer select-none w-100 font-[Barlow] font-[600] text-[20px] leading-[24.76px] tracking-[0] align-[middle] mb-[19px]"
                   >
@@ -61,13 +62,14 @@ function OrderForm({
           </div>
 
           <div className="max-w-[258px] w-[258px] mb-0">
-            <label className="w-100 font-[Barlow] font-[600] text-[20px] leading-[24.76px] tracking-[0] align-[middle] mb-[19px]">
+            <label   className="w-100 font-[Barlow] font-[600] text-[20px] leading-[24.76px] tracking-[0] align-[middle] mb-[19px]">
               Hamur Seç{" "}
               <span className="text-[var(--kirmizi)] text-[20px] font-[Barlow] font-[600] leading-[24.76px] tracking-[0px] align-middle">
                 *
               </span>
             </label>
             <select
+            data-cy="doughSelection"
               onChange={handlechange}
               name="doughType"
               type="select"
@@ -98,6 +100,7 @@ function OrderForm({
               >
                 <div className="relative w-[45px] h-[45px] min-w-[45px] rounded-[6px] overflow-hidden">
                   <input
+                  data-cy="ingredientSelection"
                     checked={ingredients.indexOf(ingredient) !== -1}
                     value={ingredient}
                     onChange={handlechange}
@@ -127,6 +130,7 @@ function OrderForm({
         <div className="order-note">
           <label for="order-note" className="w-100 font-[Barlow] font-[600] text-[20px] leading-[24.76px] tracking-[0] align-[middle] mb-[19px]">Sipariş Notu</label>
           <input
+          data-cy="orderNote"
             onChange={handlechange}
             name="orderNote"
             id="order-note"
@@ -140,6 +144,7 @@ function OrderForm({
         <div className="flex flex-row items-center justify-between items-start gap-[11px] !font-[Barlow]">
           <div className="flex flex-row items-center w-[170px] h-[57px] border border-[transparent] rounded-[6px] overflow-hidden">
             <button
+            data-cy="decreaseCount"
               type="button"
               disabled={pieceCount <= 1}
               name="pieceCount"
@@ -156,6 +161,7 @@ function OrderForm({
               className="!w-[57px] !h-[56px] border border-[var(--beyaz-gri)] rounded-[0px]  font-[700] !text-[16px] !leading-[100%] tracking-[0] text-center align-middle piece-input"
             />
             <button
+            data-cy="increaseCount"
               type="button"
               name="pieceCount"
               value={1}
@@ -178,6 +184,7 @@ function OrderForm({
               </div>
             </div>
             <button
+              data-cy="formSubmit"
               disabled={!isValid}
               className="w-100 bg-[var(--sari)] text-[var(--koyu-gri)] !font-[Barlow] font-[600] !text-[18px] !leading-[56px] tracking-[0px] text-center align-middle border-transparent !rounded-[6px] disabled:cursor-not-allowed disabled:opacity-30"
             >

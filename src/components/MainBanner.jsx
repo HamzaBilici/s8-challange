@@ -45,6 +45,7 @@ function MainBanner() {
 
           <Link
             to="/order"
+            data-cy="go-to-order"
             className="appearance-none !text-koyu-gri !no-underline w-[193px] h-[56px] rounded-[50px] bg-sari font-barlow font-semibold text-lg leading-[56px] text-center no-underline text-koyu-gri mt-[41px] lg:mt-[13px] block hover:scale-105 transition-transform"
           >
             ACIKTIM

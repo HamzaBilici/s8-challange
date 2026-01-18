@@ -125,7 +125,6 @@ function Order() {
       gravity: "bottom",
       backgroundColor: "linear-gradient(to right, #b4b6ba, #687fad)",
       callback: function () {
-        debugger
         navigate("/order/success", {
           state: { ...data, title: orderData.title },
         });
@@ -155,7 +154,7 @@ function Order() {
             fontSize: "20px",
           },
           duration: 1000,
-          text: "Siparişiniz Alındı! Bir Sonraki sayfaya Yönlendiriliyorsunuz...",
+          text: "Siparişiniz Alındı!",
           gravity: "bottom",
           backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
           callback: function () {
@@ -242,7 +241,7 @@ function Order() {
             </h2>
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <span className="font-[Barlow] font-[700] leading-[37.47px] tracking-[0px] align-middle text-koyu-gri text-[28px]">
+              <span data-cy="productPrice" className="font-[Barlow] font-[700] leading-[37.47px] tracking-[0px] align-middle text-koyu-gri text-[28px]">
                 {orderData.price}₺
               </span>{" "}
               <span className="rating-area w-[117.62px] flex flex-row items-center justify-between text-acik-gri">

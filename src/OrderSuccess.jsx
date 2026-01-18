@@ -15,7 +15,7 @@ function OrderSuccess() {
 
   return (
     <>
-      <section className="flex flex-column items-center justify-start h-screen text-center gap-[20px] bg-kirmizi text-beyaz font-[Barlow] order-success-section">
+      <section className="flex flex-column items-center justify-start min-h-screen h-auto text-center gap-[20px] bg-kirmizi text-beyaz font-[Barlow] order-success-section">
         <h2 className="order-header mt-[30px] font-londrina font-[400] text-[50px] ">Teknolojik Yemekler</h2>
         {orderData && (
           <div className="items-center flex flex-column gap-[20px] order-success-message">
@@ -25,13 +25,13 @@ function OrderSuccess() {
             <h2 className="!font-[600] !text-[22px] !leading-[29.44px] text-center align-middle order-name">{title}</h2>
             <div className="w-[202px] justify-self-center !text-start order-detail">
               <div className="font-[400] text-[16px] leading-[24.76px] tracking-[0] align-middle order-size">
-                Boyut: <span className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{doughSize}</span>
+                Boyut: <span data-cy="doughSize" className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{doughSize}</span>
               </div>
               <div className="font-[400] text-[16px] leading-[24.76px] tracking-[0] align-middle order-dough">
-                Hamur: <span className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{doughType}</span>
+                Hamur: <span data-cy="doughType" className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{doughType}</span>
               </div>
               <div className="font-[400] text-[16px] leading-[24.76px] tracking-[0] align-middle order-ingredients">
-                Malzemeler: <span className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{ingredients.join(", ")}</span>
+                Malzemeler: <span data-cy="ingredientsList" className="font-[Barlow] font-[700] text-[16px] leading-[24.76px] tracking-[0]">{ingredients.join(", ")}</span>
               </div>
             </div>
             <div className="flex flex-column row-gap-[10px] px-[49px] py-[46px] !border !border-bej rounded-[6px] w-[350px] h-[197px] text-beyaz total-price">
