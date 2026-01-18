@@ -52,7 +52,6 @@ function Content() {
 
   return (
     <section className="flex flex-col pb-16 max-lg:w-[422px]">
-      {/* Promotion Area */}
       <div className="flex flex-col lg:flex-row mx-auto my-[68px] w-full max-w-[422px] lg:max-w-[1072px] h-auto lg:h-[449px] gap-[16px] lg:gap-[11px]">
         <div className="w-full lg:w-1/2">
           <PromotionLeft />
@@ -60,7 +59,6 @@ function Content() {
         <PromotionRight />
       </div>
 
-      {/* Content Text Area */}
       <div className="flex flex-col items-center mx-auto mt-0 lg:mt-[55px] gap-[15px] lg:gap-2 w-[395px] lg:w-auto h-[229px] lg:h-auto text-center">
         <span className="font-satisfy font-normal text-[32px] leading-[44px] text-kirmizi">
           en çok paketlenen menüler
@@ -71,14 +69,12 @@ function Content() {
         </h2>
       </div>
 
-      {/* Content Options Area */}
       <div className="flex justify-center w-full lg:max-w-[1068px] mx-auto mt-[53px] lg:mt-0">
         <ul className="flex flex-wrap lg:flex-nowrap items-center justify-between lg:justify-start gap-[15px] lg:gap-[22px] p-0 list-none w-[378px] lg:w-full">
           {optionItems}
         </ul>
       </div>
 
-      {/* Product Area */}
       <div className="mx-auto max-w-[420px] lg:max-w-[1068px] mt-[25px] flex flex-wrap lg:flex-nowrap flex-row justify-center gap-6 lg:gap-8">
         {products.map((product, index) => (
           <Product

@@ -1,7 +1,6 @@
 function PromotionRight() {
   return (
     <div className="flex flex-col gap-[9px] w-full lg:w-1/2">
-      {/* Üst Kart */}
       <div className="z-0 relative rounded-xl overflow-hidden h-[270px] lg:h-[220px] max-lg:w-[422px] flex-grow group">
         <img 
           src="/images/iteration-2-images/cta/kart-2.png" 
@@ -20,7 +19,6 @@ function PromotionRight() {
         </div>
       </div>
 
-      {/* Alt Kart */}
       <div className="z-0 relative rounded-xl overflow-hidden h-[270px] lg:h-[220px] max-lg:w-[422px] flex-grow group">
         <img 
           src="/images/iteration-2-images/cta/kart-3.png" 

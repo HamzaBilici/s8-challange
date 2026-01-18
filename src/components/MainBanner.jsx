@@ -21,7 +21,6 @@ function MainBanner() {
 
   return (
     <section className="main-banner max-w-[1440px] w-100">
-      {/* Image Area */}
       <div className="relative w-full h-screen lg:h-[1080px] overflow-hidden z-0 bg-red-500 flex flex-column !gap-10">
         <img
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover -z-10"
@@ -29,12 +28,10 @@ function MainBanner() {
           alt="Main Banner"
         />
         
-        {/* Banner Header */}
         <h2 className="w-full lg:w-[363px] h-[50px] mx-auto mt-[56px] !mt-[126px] mb-10 lg:!my-[56px] font-londrina font-normal !text-[50px] leading-[50px] text-center tracking-normal text-white">
           Teknolojik Yemekler
         </h2>
 
-        {/* Banner Text Area */}
         <div className="mx-auto flex flex-col items-center w-auto h-auto lg:w-[586px] lg:h-[300px]">
           <div className="text-center w-auto h-auto lg:w-[767px] lg:h-[230px]">
             <span className="hidden lg:block font-satisfy font-normal text-[32px] leading-[44px] text-sari mb-2">
@@ -55,7 +52,6 @@ function MainBanner() {
         </div>
       </div>
 
-      {/* Main Banner Options (Bottom Bar) */}
       <div className="bg-white flex items-center max-w-[1920px] mx-auto h-[268px] lg:h-[94px] py-4 lg:py-0">
         <ul className="mx-auto p-0 flex flex-wrap lg:flex-nowrap justify-center lg:justify-between list-none w-full max-w-[412px] lg:max-w-[1068px] gap-y-[29px] gap-x-[41px] lg:gap-0">
           {optionItems}

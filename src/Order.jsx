@@ -216,11 +216,11 @@ function Order() {
 
   return (
     <>
-      <h2 className="w-full m-0 h-[138px] font-[Londrina_Solid] font-[400] !text-[50px] leading-[50px] text-center tracking-[0px] !text-[var(--beyaz)] bg-[var(--kirmizi)] content-center">
+      <h2 className="w-full m-0 h-[138px] font-[Londrina_Solid] font-[400] !text-[50px] leading-[50px] text-center tracking-[0px] !text-beyaz bg-kirmizi content-center">
         Teknolojik Yemekler
       </h2>
 
-      <section className="header-section flex justify-center bg-[var(--bej)] flex-col items-center">
+      <section className="header-section flex justify-center bg-bej flex-col items-center">
         <img
           className="max-w-[581px] h-auto"
           src="/images/iteration-2-images/pictures/form-banner.png"
@@ -228,24 +228,24 @@ function Order() {
         />
         <div className="max-w-[532px] mt-[40px]">
           <div className="breadcrums flex flex-row">
-            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-[var(--acik-gri)]">
+            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-acik-gri">
               Anasayfa -{" "}
             </span>
-            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-[var(--acik-gri)] text-[var(--kirmizi)]">
+            <span className="font-[Barlow] font-[500] font-[16px] leading-[28.8px] tracking-[0px] align-middle text-acik-gri text-kirmizi">
               {" "}
               Sipariş Oluştur
             </span>
           </div>
           <div>
-            <h2 className="font-[Barlow] font-[600] font-[22px] leading-[29.44px] tracking-[0px] align-middle text-[var(--koyu-gri)]">
+            <h2 className="font-[Barlow] font-[600] font-[22px] leading-[29.44px] tracking-[0px] align-middle text-koyu-gri">
               {orderData.title}
             </h2>
             <div className="flex flex-row justify-between items-center">
               {" "}
-              <span className="font-[Barlow] font-[700] leading-[37.47px] tracking-[0px] align-middle text-[var(--koyu-gri)] text-[28px]">
+              <span className="font-[Barlow] font-[700] leading-[37.47px] tracking-[0px] align-middle text-koyu-gri text-[28px]">
                 {orderData.price}₺
               </span>{" "}
-              <span className="rating-area w-[117.62px] flex flex-row items-center justify-between text-[var(--acik-gri)]">
+              <span className="rating-area w-[117.62px] flex flex-row items-center justify-between text-acik-gri">
                 <span className="font-[Barlow] font-[400] text-[16px] leading-[28.8px] text-center align-middle">
                   {" "}
                   {orderData.rating}
@@ -261,7 +261,7 @@ function Order() {
           </div>
         </div>
       </section>
-      <section className="!bg-[var(--beyaz)] flex flex-column w-100 items-center mt-10 order-form-section pt-5">
+      <section className="!bg-beyaz flex flex-column w-100 items-center mt-10 order-form-section pt-5">
         <OrderForm
           isValid={isValid}
           formInputData={formInputData}
