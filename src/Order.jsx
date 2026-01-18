@@ -261,7 +261,7 @@ function Order() {
           </div>
         </div>
       </section>
-      <section className="flex flex-column w-100 items-center mt-10 order-form-section">
+      <section className="!bg-[var(--beyaz)] flex flex-column w-100 items-center mt-10 order-form-section pt-5">
         <OrderForm
           isValid={isValid}
           formInputData={formInputData}
